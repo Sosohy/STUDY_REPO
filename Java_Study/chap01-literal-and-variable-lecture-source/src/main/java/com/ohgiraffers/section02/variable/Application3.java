@@ -56,6 +56,6 @@ public class Application3 {
         /* 2-6. boolean 자료형은 긍정의문문 형태로 작성 */
         boolean isAlive = true;
         boolean isDead = false;
-        
+
     }
 }
