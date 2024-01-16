@@ -4,6 +4,19 @@ import java.util.Arrays;
 
 public class Application {
 
+    /* 필기.
+     *  객체지향프로그래밍(OOP)란?
+     *  Object Oriented Programming language
+     *  추상화, 캡슐화, 상속, 다형성을 적용하여 유지보수성을 고려한 응집력 높고 결합도 낮은
+     *  객체 위주의 개발 방식을 적용한 프로그래밍
+     *  　
+     *  객체지향의 4대 특징
+     *  - 추상화 Abstraction (추상화를 제외하면 3대 특징) -> 필요한 속성과 기능만 추려내서 설계하는 것
+     *  - 캡슐화 Encapsulation
+     *  - 상속 Inheritance
+     *  - 다형성 Polymorphism
+    * */
+
     public static void main(String[] args) {
 
         /* 수업목표. 클래스가 무엇인지 이해하고 작성할 수 있다. */
