@@ -1,10 +1,16 @@
 package com.ohgiraffers.section01.exception;
 
-public class Application1 {
+public class Application {
 
     public static void main(String[] args) {
 
         /* 수업목표. 예외에 대해 이해하고 이를 처리하기 위한 문법을 활용할 수 있다. */
+        /* 필기
+         *  예외를 처리할 수 있는 방법에는 두 가지가 있다.
+         *  1. throws를 통한 위임
+         *  2. try-catch를 통한 처리
+        * */
+
         ExceptionTest et = new ExceptionTest();
 
         /* 설명. try-catch 구문을 통해 프로그램이 종료되지 않게 처리할 수 있다. */
