@@ -23,10 +23,6 @@ public class Application3 {
         int idx = 0;
         while(idx < 6){
             int n =  (int)(Math.random()*45)+1;
-//            if(dup.indexOf(n) == -1){
-//                lottoArr[idx++] = n;
-//                dup.add(n);
-//            }
             if(dup[n] == 0) {
                 lottoArr[idx++] = n;
                 dup[n] = 1;
@@ -34,7 +30,6 @@ public class Application3 {
         }
         Arrays.sort(lottoArr);
         System.out.println("lottoArr = " + Arrays.toString(lottoArr));
-
 
         Set<Integer> lotto = new TreeSet<>();
 

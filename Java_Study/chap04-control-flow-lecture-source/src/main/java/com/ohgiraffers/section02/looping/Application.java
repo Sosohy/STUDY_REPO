@@ -20,7 +20,7 @@ public class Application {
 //        bClass.printUpgradeGugudan();
 
         /* 별찍기 관련 예제 */
-//        bClass.printStars();
+        bClass.printStars2();
 
         C_While cClass = new C_While();
 
@@ -37,6 +37,6 @@ public class Application {
 //        dClass.testSimpleDoWhileStatement();
 
         /* do-while문 사용 예제 */
-        dClass.testDoWhileExample();
+//        dClass.testDoWhileExample();
     }
 }

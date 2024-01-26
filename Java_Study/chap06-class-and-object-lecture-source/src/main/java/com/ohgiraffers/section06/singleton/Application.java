@@ -27,6 +27,22 @@ public class Application {
         * */
 
         EagerSingleton eager1 = EagerSingleton.getInstance();
-        Calendar cal =  Calendar.getInstance();   // new Calendar() 못만듦
+        EagerSingleton eager2 = EagerSingleton.getInstance();
+        System.out.println("eager1 : " + eager1.hashCode());
+        System.out.println("eager2 : " + eager2.hashCode());
+
+        LazySingleton lazy1 = LazySingleton.getInstance();
+        LazySingleton lazy2 = LazySingleton.getInstance();
+        System.out.println("lazy1 : " + lazy1.hashCode());
+        System.out.println("lazy2 : " + lazy2.hashCode());
+
+        /* 필기
+         *  이른 초기화를 사용하면 클래스를 로드하는 속도(처음 애플리케이션 켜질 때)가 느려지지만
+         *  처음 인스턴스 반환 요청에서 속도가 빠르다는 장점을 가짐.
+         *  반면, 늦은 초기화는 클래스를 로드하는 속도는 빠르지만
+         *  첫번째 요청에 대한 속도가 두번째 요청에 대한 속도보다 느리다는 특징을 가지고 있다.
+        * */
+
+//        Calendar cal =  Calendar.getInstance();   // new Calendar() 못만듦
     }
 }

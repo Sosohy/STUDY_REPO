@@ -96,9 +96,6 @@ public class B_nestedFor {
             for (int j = 1; j <= star; j++) {
                 System.out.print("*");
             }
-            for (int j = 1; j <= none; j++) {
-                System.out.print(" ");
-            }
             System.out.println();
         }
     }

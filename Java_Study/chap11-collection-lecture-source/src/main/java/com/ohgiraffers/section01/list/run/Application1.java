@@ -82,5 +82,41 @@ public class Application1 {
 
         aList.add(null);
         System.out.println(aList);
+        
+        /* 설명. ArrayList를 활용한 정렬을 진행 */
+        List<String> strList = new ArrayList<>();
+        strList.add("apple");
+        strList.add("orange");
+        strList.add("banana");
+        strList.add("mango");
+        strList.add("grape");
+
+        System.out.println("strList = " + strList);
+
+        /* 설명. Collections의 sort()메소드를 활용한 정렬 */
+        Collections.sort(strList);
+        System.out.println("strList = " + strList);
+
+        List<Integer> intList = new ArrayList<>();
+        intList.add(65);
+        intList.add(21);
+        intList.add(3);
+        intList.add(35);
+        intList.add(87);
+        intList.add(65);
+
+        System.out.println("intList = " + intList);
+
+        Collections.sort(intList);
+        System.out.println("intList = " + intList);
+
+        /* 설명. 내림차순으로 바꾸기 위해 ArrayList -> LinkedList로 교체 */
+        strList = new LinkedList<>(strList);
+        Iterator<String> iter = ((LinkedList<String>)strList).descendingIterator();
+        while (iter.hasNext()){
+            System.out.println(iter.next());
+        }
+
+
     }
 }

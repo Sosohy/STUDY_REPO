@@ -16,5 +16,6 @@ public class Application {
         InterProduct ip = new Product();         // 다만 타입으로 활용이 가능 -> 다형성 가능(타입 은닉)
 
 
+
     }
 }
