@@ -27,6 +27,17 @@ public class Member implements Serializable {         // 객체 입출력을 위
         this.bloodType = bloodType;
     }
 
+    public Member(String id, String pw, int age, String[] hobbies) {
+        this.id = id;
+        this.pw = pw;
+        this.age = age;
+        this.hobbies = hobbies;
+    }
+
+    public void setMemNo(int memNo) {
+        this.memNo = memNo;
+    }
+
     public int getMemNo() {
         return memNo;
     }
@@ -45,6 +56,10 @@ public class Member implements Serializable {         // 객체 입출력을 위
 
     public String[] getHobbies() {
         return hobbies;
+    }
+
+    public void setBloodType(BloodType bloodType) {
+        this.bloodType = bloodType;
     }
 
     public BloodType getBloodType() {

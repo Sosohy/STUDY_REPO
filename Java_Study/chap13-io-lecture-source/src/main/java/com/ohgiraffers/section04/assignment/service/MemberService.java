@@ -14,9 +14,17 @@ public class MemberService {
 
     public void selectAllMembers() {
         ArrayList<Member> selectedMembers = mr.selectAllMembers();
-        for (Member m : selectedMembers){
-            System.out.println(m);
+
+        /* 설명. 회원이 한명도 없어서 조회 결과가 없더라도 ArrayList객체는 넘어온다.(Empty 상태로) */
+        if(!selectedMembers.isEmpty()){       // 회원이 한 명이라도 조회 된다면
+            for (Member m : selectedMembers){
+                System.out.println(m);
+            }
+            return;                           // 이후 코드와 상관 없이 메소드 종료
         }
+
+        /* 설명. 조건이 맞지 않아(회원이 조회되지 않아) 출력을 하는 구문(else 안쓰기) */
+        System.out.println("아직 회원이 없음");
     }
 
     /* 설명. 전달된 회원번호를 활용해 repository에 있는 memList로부터 해당 회원 찾아 반환 받기 */
@@ -27,5 +35,26 @@ public class MemberService {
         }else{
             System.out.println("회원 정보 없음");
         }
+    }
+
+    /* 설명. 입력 받아 넘어온 회원이 가질 번호를 만들고 추가 후, repository로 전달 후, 결과 확인 */
+    public void registMember(Member member) {
+//        System.out.println(member);
+        int lastMemberNo = mr.selectLastMemberNo();
+        member.setMemNo(lastMemberNo + 1);
+
+        int result = mr.registMember(member);
+        if(result == 1){
+            System.out.println(member.getId()+"의 회원 가입 성공!.!");
+        }
+    }
+
+    public void deleteMember(int memNo) {
+        int result = mr.deleteMember(memNo);
+        if(result > 0){
+            System.out.println(memNo + "번 회원 탈퇴 완료");
+            return;
+        }
+        System.out.println("회원 탈퇴 실패");
     }
 }
