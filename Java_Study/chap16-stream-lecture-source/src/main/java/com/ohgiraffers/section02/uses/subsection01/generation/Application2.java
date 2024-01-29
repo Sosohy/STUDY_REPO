@@ -26,7 +26,7 @@ public class Application2 {
 
         /* 필기
          *  Wrapper 클래스 자료형의 스트림이 필요한 경우 Boxing도 가능하다.
-         *  doubles(갯수) : 난수를활용한 DoubleStream을 갯수만큼 생성하여 반환한다.
+         *  doubles(갯수) : 난수를 활용한 DoubleStream을 갯수만큼 생성하여 반환한다.
          *  boxed() : 기본 타입 스트림인 XXXStream을 박싱하여 Wrapper 타입의 Stream<XXX>로 변환한다.
         * */
         Stream<Double> doubleStream = new Random().doubles(5).boxed();

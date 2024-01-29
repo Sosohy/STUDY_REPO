@@ -13,13 +13,13 @@ public class Application1 {
 
         /* 필기
          *  Arrays.stream(배열) : 배열 자료형을 Stream 자료형으로 변환
-        * */
+         * */
         /* 설명 1. 배열로 스트림 생성 */
         Stream<String> stringStream1 = Arrays.stream(arr);
         stringStream1.forEach(System.out::println);
         System.out.println();
 
-        Stream<String> stringStream2 = Arrays.stream(arr, 0 ,2);
+        Stream<String> stringStream2 = Arrays.stream(arr, 0, 2);
         stringStream2.forEach(System.out::println);
         System.out.println();
 
@@ -33,18 +33,18 @@ public class Application1 {
         /* 설명
          *  3. Builder를 활용한 스트림 생성
          *  builder는 static<T>로 되어있는 메소드이며, 호출 시 타입 파라미터를 메소드 호출 방식으로 전달한다.
-        * */
+         * */
         Stream<String> builderStream = Stream.<String>builder()   // 메소드에 제네릭 걸면서 호출
-                                             .add("홍길동")
-                                             .add("유관순")
-                                             .add("윤봉길")
-                                             .build();
+                .add("홍길동")
+                .add("유관순")
+                .add("윤봉길")
+                .build();
 
         builderStream.forEach(System.out::println);
 
         /* 설명 4. iterator()를 활용해 수열 형태의 스트림을 생성할 수도 있다. */
         Stream<Integer> integerStream = Stream.iterate(10, value -> value * 2).limit(10);
-        integerStream.forEach(value-> System.out.println(value));
+        integerStream.forEach(value -> System.out.println(value));
 
     }
 }
