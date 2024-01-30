@@ -1,5 +1,7 @@
 package com.ohgiraffers.chap02.section01.sorting;
 
+import java.util.Scanner;
+
 /* 수업목표. 삽입 정렬을 이해할 수 있다. */
 /* 필기
  *  삽입 정렬(Insertion Sort)
@@ -32,12 +34,34 @@ public class Application3 {
      *    - 5 14 17 19 26 38
      * */
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        /* 입력 데이터 받기 */
+        int len = sc.nextInt();
+        int[] arr = new int[len];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();               // 공백을 구분자로 하여 하나씩 입력 됨
+        }
+//        System.out.println(Arrays.toString(arr));
+
+        /* 알고리즘 실행 */
+        solution(arr);
+
+        /* 정렬 결과 출력 */
+        for (int i : arr){
+            System.out.print(i + " ");
+        }
+
+    }
+
     public static void solution(int[] arr){
         for (int i = 1; i < arr.length; i++) {
             int tmp = arr[i];
             int j;
             for (j = i-1; j >= 0; j--) {
                 if(arr[j] > tmp) arr[j+1] = arr[j];
+                else break;
             }
             arr[j+1] = tmp;
         }

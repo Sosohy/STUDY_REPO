@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
-public class Application2Tests {
+public class Application3Tests {
 
     private static int input1, input2;
     private static int[] act1, act2;
@@ -23,12 +23,12 @@ public class Application2Tests {
         /* 예시 1 */
         input1 = 7;
         act1 = new int[]{34, 23, 5, 24, 1, 9, 12};
-        exp1 = new int[]{34, 24, 23, 12, 9, 5, 1};
+        exp1 = new int[]{1, 5, 9, 12, 23, 24, 34};
 
         /* 예시 2 */
         input2 = 6;
         act2 = new int[]{40, 47, 38, 8, 33, 35};
-        exp2 = new int[]{47, 40, 38, 35, 33, 8};
+        exp2 = new int[]{8, 33, 35, 38, 40, 47};
     }
 
     public static Stream<Arguments> provideAscendingSource(){
@@ -38,12 +38,12 @@ public class Application2Tests {
         );
     }
 
-    @DisplayName("선택 정렬 테스트")
+    @DisplayName("삽입 정렬 테스트")
     @Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
     @ParameterizedTest
     @MethodSource("provideAscendingSource")
-    public void selectionSortTests(int len, int[] actual, int[] expected){
-        Application2.solution(actual);
+    public void insertionSortTests(int len, int[] actual, int[] expected){
+        Application3.solution(actual);
         Assertions.assertArrayEquals(expected, actual);
     }
 
