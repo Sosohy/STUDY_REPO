@@ -1,5 +1,4 @@
 -- TRIGGER
-
 -- 메뉴 추가 시, update 자동화 trigger 만들기
 DELIMITER //
 
