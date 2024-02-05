@@ -11,7 +11,7 @@ import static com.ohgiraffers.common.JDBCTemplate.getConnection;
 public class Application1 {
 
     private static String empId = "200";
-    private static String empName = "' OR 1=1 AND EMP_ID = '200";
+    private static String empName = "' OR 1=1 AND EMP_ID = '200";     // sql 주입
 
     public static void main(String[] args) {
         Connection con = getConnection();
