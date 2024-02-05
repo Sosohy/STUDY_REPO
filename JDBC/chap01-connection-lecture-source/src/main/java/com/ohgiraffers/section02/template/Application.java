@@ -1,0 +1,23 @@
+package com.ohgiraffers.section02.template;
+
+import java.sql.Connection;
+import java.sql.NClob;
+
+/* 설명. import 뒤에 static을 붙이고 메소드명까지 쓰게 되면 다른 클래스의 static 메소드를 마치 내 class에 있는 것처럼 사용할 수 있다. */
+import static com.ohgiraffers.section02.template.JDBCTemplate.getConnection;
+import static com.ohgiraffers.section02.template.JDBCTemplate.close;
+
+public class Application {
+    public static void main(String[] args) {
+
+        Connection con = getConnection();
+        System.out.println("con = " + con);
+
+
+        /* 비즈니스 로직(트랜잭션 처리) 실행 */
+
+
+        close(con);
+
+    }
+}
