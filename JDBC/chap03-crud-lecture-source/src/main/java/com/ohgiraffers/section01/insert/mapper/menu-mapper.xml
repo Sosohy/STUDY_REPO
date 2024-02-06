@@ -16,6 +16,12 @@
         , ?
         , ?
         , ?
-        );
+        )
+    </entry>
+    <entry key="updateMenu">
+        UPDATE tbl_menu
+        SET MENU_NAME = ?,
+        MENU_PRICE = ?
+        WHERE MENU_CODE = ?
     </entry>
 </properties>
