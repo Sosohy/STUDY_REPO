@@ -30,7 +30,7 @@ public class RedirectServlet extends HttpServlet {
         /* 설명
          *  포워딩 VS 리다이렉트
          *  request나 response 객체를 유지하여 요청 처리를 하고 싶다면 포워딩을 이용하자
-         *  클라이언트(브라우저)가 새로고침을 할 때마다 처음 효청하는 서블릿을 다시 호출하게 하고 싶지 않다면
+         *  클라이언트(브라우저)가 새로고침을 할 때마다 처음 요청하는 서블릿을 다시 호출하게 하고 싶지 않다면
          *  (insert와 같은 경우) 리다이렉트 사용
          *  　
          *  포워딩은 request와 attribute를 활용하여 다음 서블릿으로 값을 넘겨줄 수 있다.
