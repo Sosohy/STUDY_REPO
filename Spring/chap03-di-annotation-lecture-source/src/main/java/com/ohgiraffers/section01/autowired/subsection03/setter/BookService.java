@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service("bookServiceSetter")
 public class BookService {
-    private BookDAO bookDAO;   // 반드시 의도한 값이 들어가서 final 붙일 수 있음
+    private BookDAO bookDAO;
 
     @Autowired
     public void setBookDAO(BookDAO bookDAO){
