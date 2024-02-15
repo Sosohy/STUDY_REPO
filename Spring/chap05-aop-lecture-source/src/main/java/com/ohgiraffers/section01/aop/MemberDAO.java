@@ -20,8 +20,8 @@ public class MemberDAO {
         return memberList;
     }
 
-    public MemberDTO selectMemberBy(long id) {
-        return memberList.get((int)id);
+    public MemberDTO selectMemberBy(int idx) {
+        return memberList.get(idx);
     }
 }
 
