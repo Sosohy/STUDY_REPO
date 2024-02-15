@@ -18,6 +18,7 @@ public class MethodMappingTestController {
 
         model.addAttribute("message", "신규 메뉴 등록용 핸들러 메소드 호출");
 
+        /* 설명. 핸들러 메소드에서 반환하는 String 같은 templates에 있는 view(html 파일)의 이름이다. */
         return "mappingResult";                     // 뷰의 이름 반환
     }
 
