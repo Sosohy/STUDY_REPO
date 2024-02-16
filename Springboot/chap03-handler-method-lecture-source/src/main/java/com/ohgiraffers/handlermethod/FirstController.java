@@ -131,8 +131,8 @@ public class FirstController {
 
     @PostMapping("body")
     public void body(@RequestBody String body,
-                       @RequestHeader("content-type") String contentType,
-                       @CookieValue(value="JSESSIONID") String sessionId){
+                     @RequestHeader("content-type") String contentType,
+                     @CookieValue(value="JSESSIONID") String sessionId){
         System.out.println("body = " + body);
         System.out.println("contentType = " + contentType);
         System.out.println("sessionId = " + sessionId);
