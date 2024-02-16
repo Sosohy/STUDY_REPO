@@ -15,6 +15,7 @@ public class RootConfiguration {
 
         Properties props = new Properties();
         props.setProperty("java.lang.NullPointerException", "error/nullPointer");
+        props.setProperty("MemberRegistException", "error/memberRegist");
 
         /* 설명. 전체 예외 관련되어 SimpleMappingExceptionResolver에 설정하기 */
 
