@@ -2,12 +2,11 @@ package com.ohgiraffers.handlermethod;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.Map;
@@ -16,6 +15,9 @@ import java.util.Map;
 
 /* 설명. 현재의 Controller 클래스에 작성할 핸들러 메소드들이 모두 /first/xxx의 요청을 받게 될 때 클래스에 어노테이션을 추가할 수 있다. */
 @RequestMapping("/first")    // 공통 요청 부분 빼내기
+
+/* 설명. 이 Controller 클래스의 핸들러 메소드에서 Model에 'id'라는 키 값으로 담는 값들은 Session에 담으라는 어노테이션 */
+@SessionAttributes("id")
 public class FirstController {
 
     /* 설명. 반환형이 void인 핸들러 메소드는 요청 경로 자체가 view의 경로 및 이름을 반환한 것으로 바로 해석이 된다.  */
@@ -78,5 +80,49 @@ public class FirstController {
         model.addAttribute("message", msg);
 
         return "first/messagePrinter";
+    }
+
+    @GetMapping("search")
+    public void searchMenu(){}
+
+    /* 설명. 핸들러 메소드에 우리가 작성한 클래스를 매개변수로 작성하면 스프링이 객체를 만들어 주고 setter로 값도 주입해 준다.(커맨드 객체) */
+    /* 설명. @ModelAttribute 어노테이션을 활용하면 커맨드 객체를 모델에도 담아주며 어트리뷰트의 키값을 지정할 수 있다. (키 값이 없으면 타입의 낙타봉 표기법이 키값이다.) */
+    @PostMapping("search")
+    public String search(@ModelAttribute("menu") MenuDTO menu){   // ("menu") 안 적으면 menuDTO로 넘어가게 됨
+        System.out.println("menu = " + menu);
+
+        return "first/searchResult";
+    }
+
+    @GetMapping("login")
+    public void login(){}
+
+    @PostMapping("login")
+    public String sessionTest1(HttpSession session, @RequestParam String id){
+        session.setAttribute("id", id);
+
+        return "first/loginResult";
+    }
+
+    @GetMapping("logout1")
+    public String logout1(HttpSession session){
+        session.invalidate();
+
+        return "first/loginResult";
+    }
+
+    @PostMapping("login2")
+    public String sessionTest2(Model model, @RequestParam String id){
+        model.addAttribute("id", id);
+
+        return "first/loginResult";
+    }
+
+    /* 설명. @SessionAttribute 방식으로 Session에 담긴 값은 SessionStatus에서 제공하는 setComplete()로 만료시켜야 한다. */
+    @GetMapping("logout2")
+    public String logout2(SessionStatus sessionStatus){
+        sessionStatus.setComplete();
+
+        return "first/loginResult";
     }
 }
