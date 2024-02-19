@@ -60,6 +60,8 @@ public class FileUploadController {
 
             /* 설명. try 구문 안에서(DB를 다녀오는 business logic 처리) 예외가 발생하면 파일만 올라가면 안되므로 찾아서 다시 지워줌 */
             new File(filePath + "/" + savedName).delete();
+
+            rttr.addFlashAttribute("message", "파일 업로드 실패");
         }
 
         return "redirect:/result";          // 사용자가 새로고침은 누르면 업로드가 계속 되기 때문에 방지하는 목적으로 redirect 사용
@@ -111,6 +113,7 @@ public class FileUploadController {
                 Map<String, String> file = files.get(i);
                 new File(filePath + "/" + file.get("savedName")).delete();
             }
+            rttr.addFlashAttribute("message", "파일 업로드 실패");
         }
 
 
