@@ -14,8 +14,8 @@
 </form>
 
 <h3>mutil file 업로드</h3>
-<form action="multi-file" method="post">
-    파일: <input type="file" name="multiFile" multiple><br>   <!-- 파일을 여러개 넣으려면 multiple 속성 사용 -->
+<form action="multi-file" method="post" enctype="multipart/form-data">
+    파일: <input type="file" name="multiFiles" multiple><br>   <!-- 파일을 여러개 넣으려면 multiple 속성 사용 -->
     파일 설명: <input type="text" name="multiFileDescription"><br>
     <input type="submit" value="업로드">
 </form>
