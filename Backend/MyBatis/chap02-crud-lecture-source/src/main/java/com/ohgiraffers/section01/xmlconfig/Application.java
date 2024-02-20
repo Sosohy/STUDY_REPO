@@ -1,0 +1,59 @@
+package com.ohgiraffers.section01.xmlconfig;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Application {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        MenuController menuController = new MenuController();
+
+        do{
+            System.out.println("----- 메뉴 관리 -----");
+            System.out.println("1. 전체 메뉴 조회");
+            System.out.println("2. 메뉴 코드로 메뉴 조회");
+            System.out.println("3. 신규 메뉴 추가");
+            System.out.println("4. 메뉴 수정");
+            System.out.println("5. 메뉴 삭제");
+            System.out.println("9. 프로그램 종료");
+            System.out.print("메뉴 관리 번호를 입력하세요 : ");
+            int n = sc.nextInt();
+
+            switch (n){
+                case 1:
+                    menuController.findAllMenus();
+                    break;
+                case 2:
+                    menuController.findMenuByMenuCode(inputMenuCode());
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 9:
+                    System.out.println("프로그램을 종료합니다.");
+                    return;
+                default:
+                    System.out.println("잘못된 번호를 입력하셨습니다.");
+            }
+        }while (true);
+    }
+
+    /* 설명. 사용자의 입력 값을 Map 형태로 변환(web에서는 key와 value 형태로 request 객체에 담기는 parameter로 생각) */
+    private static Map<String, String> inputMenuCode() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("메뉴 코드 입력 : ");
+        String menuCode = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("menuCode", menuCode);
+
+        return parameter;
+    }
+}
