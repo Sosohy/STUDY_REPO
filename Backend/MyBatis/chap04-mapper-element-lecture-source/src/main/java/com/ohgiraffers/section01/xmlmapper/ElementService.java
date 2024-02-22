@@ -14,5 +14,19 @@ public class ElementService {
         List<MenuDTO> menus = elementMapper.selectResultMapTest();
         menus.forEach(System.out::println);
 
+        sqlSession.close();
+
+    }
+
+    public void selectResultMapAssociationTest() {
+
+        SqlSession sqlSession = getSqlSession();
+        ElementMapper elementMapper = sqlSession.getMapper(ElementMapper.class);
+
+        List<MenuAndCategoryDTO> menus = elementMapper.selectResultMapAssociationTest();
+        menus.forEach(System.out::println);
+
+        sqlSession.close();
+
     }
 }
