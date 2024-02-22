@@ -29,4 +29,15 @@ public class ElementService {
         sqlSession.close();
 
     }
+
+    public void selectResultMapCollectionTest() {
+
+        SqlSession sqlSession = getSqlSession();
+        ElementMapper elementMapper = sqlSession.getMapper(ElementMapper.class);
+
+        List<CategoryAndMenuDTO> menus = elementMapper.selectResultMapCollectionTest();
+        menus.forEach(System.out::println);
+
+        sqlSession.close();
+    }
 }
