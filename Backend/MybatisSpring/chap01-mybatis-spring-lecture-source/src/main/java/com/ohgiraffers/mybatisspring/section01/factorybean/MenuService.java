@@ -16,8 +16,7 @@ public class MenuService {
         this.sqlSession = sqlSession;
     }
 
-    public List<MenuDTO> findAllMenuByOrderableStatus(String orderableStatus){
+    public List<MenuDTO> findAllMenuByOrderableStatus(String orderableStatus) {
         return sqlSession.getMapper(MenuMapper.class).selectAllMenuByOrderableStatus(orderableStatus);
     }
-
 }

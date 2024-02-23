@@ -1,13 +1,13 @@
-package com.ohgiraffers.mybatisspring;
+package com.ohgiraffers.transactional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Chap01MybatisSpringLectureSourceApplication {
+public class Chap02TransactionalLectureSourceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Chap01MybatisSpringLectureSourceApplication.class, args);
+        SpringApplication.run(Chap02TransactionalLectureSourceApplication.class, args);
     }
 
 }
