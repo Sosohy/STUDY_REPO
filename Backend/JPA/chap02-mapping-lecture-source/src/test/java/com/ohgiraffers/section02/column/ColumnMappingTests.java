@@ -1,13 +1,15 @@
-package com.ohgiraffers.section01.entity;
+package com.ohgiraffers.section02.column;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
-
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EntityMappingTests {
+public class ColumnMappingTests {
+
     private static EntityManagerFactory entityManagerFactory;
 
     private EntityManager entityManager;
@@ -33,7 +35,7 @@ public class EntityMappingTests {
     }
 
     @Test
-    public void 테이블_만들기_테스트(){
+    public void 컬럼에서_사용하는_속성_테스트(){
 
         // given
         Member member = new Member();
@@ -61,13 +63,7 @@ public class EntityMappingTests {
         entityTransaction.commit();
         assertEquals(member, foundMember);
 
+
     }
 
-
-
-
 }
-
-
-
-

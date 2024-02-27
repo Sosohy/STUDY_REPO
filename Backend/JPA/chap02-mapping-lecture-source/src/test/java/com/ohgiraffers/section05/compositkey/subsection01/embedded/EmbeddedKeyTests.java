@@ -1,13 +1,14 @@
-package com.ohgiraffers.section01.entity;
+package com.ohgiraffers.section05.compositkey.subsection01.embedded;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
-
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EntityMappingTests {
+public class EmbeddedKeyTests {
     private static EntityManagerFactory entityManagerFactory;
 
     private EntityManager entityManager;
@@ -33,41 +34,21 @@ public class EntityMappingTests {
     }
 
     @Test
-    public void 테이블_만들기_테스트(){
+    public void 임베디드_아이디를_사용한_복합키_테이블_매핑_테스트(){
 
-        // given
         Member member = new Member();
-        member.setMemberNo(1);
-        member.setMemberId("user01");
-        member.setMemberPwd("pass01");
-        member.setNickname("홍길동");
+        member.setMemberPK(new MemberPK(1, "user01"));
         member.setPhone("010-1234-1234");
-        member.setEmail("hong@gmail.com");
-        member.setAddress("서울시 서초구");
-        member.setEnrollDate(new java.util.Date());
-        member.setMemberRole("ROLE_MEMBER");
-        member.setStatus("Y");
+        member.setAddress("서울시 종로구");
 
-        // when
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
-
         entityManager.persist(member);
-
-        // then
-        Member foundMember = entityManager.find(Member.class, 1);
-        foundMember.setNickname("동에번쩍");
-
         entityTransaction.commit();
-        assertEquals(member, foundMember);
+
+        Member foundMember = entityManager.find(Member.class, member.getMemberPK());
+        assertEquals(member.getMemberPK(), foundMember.getMemberPK());
 
     }
 
-
-
-
 }
-
-
-
-

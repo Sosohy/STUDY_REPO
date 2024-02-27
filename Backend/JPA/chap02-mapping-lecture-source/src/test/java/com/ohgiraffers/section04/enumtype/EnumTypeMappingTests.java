@@ -1,13 +1,17 @@
-package com.ohgiraffers.section01.entity;
+package com.ohgiraffers.section04.enumtype;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.*;
 
-import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EntityMappingTests {
+public class EnumTypeMappingTests {
+
     private static EntityManagerFactory entityManagerFactory;
 
     private EntityManager entityManager;
@@ -33,7 +37,7 @@ public class EntityMappingTests {
     }
 
     @Test
-    public void 테이블_만들기_테스트(){
+    public void enum타입_매핑_테스트(){
 
         // given
         Member member = new Member();
@@ -45,29 +49,24 @@ public class EntityMappingTests {
         member.setEmail("hong@gmail.com");
         member.setAddress("서울시 서초구");
         member.setEnrollDate(new java.util.Date());
-        member.setMemberRole("ROLE_MEMBER");
+        member.setMemberRole(RoleType.MEMBER);
         member.setStatus("Y");
 
-        // when
+        /* 설명
+         *  테이블에 insert 할 때
+         *  1. @Enumerated(EnumType.ORDINAL) : 숫자로 값이 들어감(ex. 0 또는 1)
+         *  2. @Enumerated(EnumType.STRING) : 문자열로 값이 들어감(ex. ADMIN 또는 MEMBER)
+         *  (자바 객체 상에서는 "ADMIN" 또는 "MEMBER"라고만 나온다.)
+        * */
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
-
         entityManager.persist(member);
-
-        // then
-        Member foundMember = entityManager.find(Member.class, 1);
-        foundMember.setNickname("동에번쩍");
-
         entityTransaction.commit();
-        assertEquals(member, foundMember);
+
+        Member foundMember = entityManager.find(Member.class, member.getMemberNo());
+        assertEquals(member.getMemberNo(), foundMember.getMemberNo());
+        System.out.println("foundMember = " + foundMember);
 
     }
 
-
-
-
 }
-
-
-
-
