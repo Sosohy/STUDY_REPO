@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -82,6 +83,25 @@ public class MenuService {
         List<Category> categoryList = categoryRepository.findAllCategory();
 
         return categoryList.stream().map(category -> mapper.map(category, CategoryDTO.class)).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void registMenu(MenuDTO newMenu) {
+        menuRepository.save(mapper.map(newMenu, Menu.class));
+    }
+
+    @Transactional
+    public void modifyMenu(MenuDTO modifyMenu) {
+
+        Menu foundMenu = menuRepository.findById(modifyMenu.getMenuCode()).orElseThrow(IllegalArgumentException::new);
+        foundMenu.setMenuName(modifyMenu.getMenuName());   // 메소드 시작 시 업데이트가 작성되고, 메소드 종료 시점에 update문 날아감
+
+    }
+
+    @Transactional
+    public void deleteMenu(int menuCode) {
+
+        menuRepository.deleteById(menuCode);
     }
 }
 
