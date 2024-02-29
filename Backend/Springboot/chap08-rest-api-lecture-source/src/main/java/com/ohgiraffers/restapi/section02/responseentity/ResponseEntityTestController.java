@@ -85,6 +85,37 @@ public class ResponseEntityTestController {
                 .build();
     }
 
+    @PutMapping("users/{userNo}")
+    public ResponseEntity<?> modifyUser(@RequestBody UserDTO modifyInfo, @PathVariable int userNo){
 
+        /* 설명. PathVariable로 넘어온 번호와 일치하는 회원 한명 추출 */
+        UserDTO foundUser = users.stream().filter(user->user.getNo()==userNo)
+                                  .collect(Collectors.toList())
+                                  .get(0);
+
+        /* 설명. 사용자가 넘겨준 수정하고자 하는 데이터로 회원 정보를 수정 */
+        foundUser.setId(modifyInfo.getId());
+        foundUser.setPwd(modifyInfo.getPwd());
+        foundUser.setName(modifyInfo.getName());
+
+        return ResponseEntity
+                .created(URI.create("/entity/users/" + userNo))
+                .build();
+    }
+
+    @DeleteMapping("/users/{userNo}")
+    public ResponseEntity<?> removeUser(@PathVariable int userNo){
+
+        UserDTO foundUser = users.stream().filter(user->user.getNo()==userNo)
+                .collect(Collectors.toList())
+                .get(0);
+
+        /* 설명. ArrayList에서 제공하는 remove는 인덱스 대신 자신이 관리하는 객체를 찾아서 지워 주기도 한다. */
+        users.remove(foundUser);
+
+        return ResponseEntity
+                .noContent()      // 204
+                .build();
+    }
 
 }
