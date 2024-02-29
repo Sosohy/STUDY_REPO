@@ -1,2 +1,19 @@
 ### GET entity users
 GET localhost:8080/entity/users
+
+### GET entity user
+GET localhost:8080/entity/users/3
+
+### Send POST request with json body
+POST localhost:8080/entity/users
+Content-Type: application/json
+
+{
+  "id": "user04",
+  "pwd": "pass04",
+  "name": "신사임당",
+  "enrollAt": "2024-02-29T13:15:29.032+00:00"
+}
+
+### GET entity user
+GET localhost:8080/entity/users/4
