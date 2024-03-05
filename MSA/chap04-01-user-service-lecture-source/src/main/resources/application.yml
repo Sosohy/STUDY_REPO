@@ -32,3 +32,10 @@ eureka:
 # yml ??? ???? ?? ??
 swcamp:
   message: Let's do msa!
+
+token:
+  # JWT 토큰의 만료시간 설정(ms단위)
+  expiration_time: 43200000
+
+  # JWT 토큰의 Verify Signature를 위한 secret-key
+  secret: 
