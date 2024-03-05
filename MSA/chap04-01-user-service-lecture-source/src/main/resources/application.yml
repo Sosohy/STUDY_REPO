@@ -1,5 +1,5 @@
 server:
-  port: 8777
+  port: 0
 
 spring:
   application:
@@ -38,4 +38,4 @@ token:
   expiration_time: 43200000
 
   # JWT 토큰의 Verify Signature를 위한 secret-key
-  secret: 
+  secret: l1Z5I9WufSD5qM0UTHXDJa1kaGxBlyhKMbx+ONkqzeRTlKdF8Bq37mA3Z8nhjRlwVUrL/u3bdkFeamIrUoWvVw==
