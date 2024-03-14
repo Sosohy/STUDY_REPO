@@ -42,57 +42,61 @@
             position: absolute;
         }
 
-        .vis-test{
+        .vis-test {
             width: 100px;
             height: 100px;
             border: 1px solid black;
         }
 
-        .vis-test1{
+        .vis-test1 {
             background-color: red;
         }
 
         /* visibility: hidden 속성은 페이지 공간은 차지하고 보이지 않는다 */
         /* display: none 속성은 페이지 공간도 차지하지 않고 보이지도 않는다 */
-        .vis-test2{
+        .vis-test2 {
             background-color: yellow;
             visibility: hidden;
             visibility: visible;
             display: none;
             display: block;
         }
-        .vis-test3{
+
+        .vis-test3 {
             background-color: greenyellow;
         }
 
-        .wrap{
+        .wrap {
             position: relative;
         }
-        .z-test{
+
+        .z-test {
             width: 150px;
             height: 100px;
             border: 1px solid black;
         }
-        .z-test1{
+
+        .z-test1 {
             background-color: yellow;
             position: absolute;
             top: 100px;
             left: 100px;
             z-index: 3;
         }
-        .z-test2{
+
+        .z-test2 {
             background-color: red;
             position: absolute;
             top: 50px;
             left: 50px;
             z-index: 2;
         }
-        .z-test3{
+
+        .z-test3 {
             background-color: green;
             position: absolute;
             /* z-index: 1; */
         }
-
     </style>
 </head>
 
@@ -118,14 +122,14 @@
     <div class="vis-test vis-test2"></div>
     <div class="vis-test vis-test3"></div>
 
-<h3>z-index</h3>
-<p>페이지 안의 요소들을 위로 쌓는 속성</p>
-<!-- div.wrap>(div.z-test.z-test${요소$})*3 -->
-<div class="wrap">
-    <div class="z-test z-test1">요소1</div>
-    <div class="z-test z-test2">요소2</div>
-    <div class="z-test z-test3">요소3</div>
-</div>
+    <h3>z-index</h3>
+    <p>페이지 안의 요소들을 위로 쌓는 속성</p>
+    <!-- div.wrap>(div.z-test.z-test${요소$})*3 -->
+    <div class="wrap">
+        <div class="z-test z-test1">요소1</div>
+        <div class="z-test z-test2">요소2</div>
+        <div class="z-test z-test3">요소3</div>
+    </div>
 
 </body>
 
