@@ -27,5 +27,5 @@ if(num%2 == 0) {
 */
 
 /* 단축 평가를 활용하여 같은 결과를 얻을 수 있다. */
-num % 2 == 0 && console.log('짝수');
-num % 2 == 0 || console.log('홀수');
+num % 2 == 0 && console.log('짝수');   // &&는 왼쪽이 맞으면 오른쪽 실행 -> 앞에가 false라 false
+num % 2 == 0 || console.log('홀수');   // ||는 왼쪽이 틀리면 오른쪽 실행 -> 앞에가 false고 판단 근거인 "홀수"가 true
