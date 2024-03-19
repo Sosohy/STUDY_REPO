@@ -4,8 +4,6 @@ import lombok.Data;
 
 @Data
 public class RequestLogin {
-
     private String email;
-    public String password;
-
+    private String password;
 }
