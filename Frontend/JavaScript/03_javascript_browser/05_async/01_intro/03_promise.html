@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**/
+        function increase(number) {
+            const promise = new Promise((resolve, reject) => { // Promise 객체를 생성할 때 콜백 메소드로 setTimeout이 실행됨
+                setTimeout(() => {                              // setTimeout 안에는 resolve와 reject 함수가 실행되도록 작성 되어있음.\
+                    const result = number + 10;
+                    if (result > 50) {
+                        const e = new Error('NumberTooBig');
+
+                        return reject(e);
+                    }
+                    return resolve(result);
+                }, 1000);
+            })
+
+            return promise;
+        }
+
+        console.log(increase(0));
+
+        // increase(0).then(number => console.log(number));
+
+        increase(0)
+            .then(number => {
+                console.log(number)
+
+                return increase(number);        // 또 다른 promise를 반환함
+            })
+            .then(number => {
+                console.log(number);
+
+                return increase(number);
+            })
+            .then(number => {
+                console.log(number);
+                console.log('end');
+            });
+
+    </script>
+</body>
+
+</html>
