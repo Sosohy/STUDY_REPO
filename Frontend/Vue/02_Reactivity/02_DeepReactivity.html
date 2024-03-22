@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="step01">
+        <h1>상품 담기</h1>
+        <select v-model="selectedFruit">
+            <option v-for="fruit in fruits" :value="fruit.name">{{fruit.name}}</option>
+        </select>
+        <button @click="addProduct(selectedFruit)">상품 추가</button>
+        <hr>
+        <li v-for="list in basket">{{list}}</li>
+        <p>{{totalPrice}}</p>
+    </div>
+
+    <script>
+        const {createApp, ref} = Vue;
+
+        createApp({
+            setup() {
+                const fruits = ref([
+                    { name: 'apple', price: 100 },
+                    { name: 'banana', price: 200 },
+                    { name: 'orange', price: 300 }
+                ]);
+                const selectedFruit = ref({name: 'apple', price: 100});
+                const basket = ref([]);
+                const totalPrice = ref(0);
+
+                const addProduct = (product) => {
+                    basket.value.push(product.name);
+                    totalPrice.value += product.price;
+                }
+
+                return {
+                    fruits,
+                    selectedFruit,
+                    basket,
+                    totalPrice,
+                    addProduct
+                }
+            }
+
+        }).mount("#step01");
+    </script>
+</body>
+</html>
