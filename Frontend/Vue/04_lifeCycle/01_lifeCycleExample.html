@@ -57,7 +57,7 @@
             width: 50px;
             height: 50px;
         }
-        
+
         .neon {
             color: #fff;
             text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f, 0 0 40px #00f, 0 0 70px #00f, 0 0 80px #00f, 0 0 100px #00f, 0 0 150px #00f;
@@ -79,51 +79,52 @@
 <body>
     <div id="step01">
         <div v-if="!loadingState">
-            로딩 준비
+            로딩을 준비합니다.
         </div>
         <template v-else>
-            <h1 :class="{'neon' : isMounted}">인생 와인</h1>
+            <h1 :class={"neon":isMounted}>인생 와인</h1>
 
             <div class="btn-group">
                 <button ref="back" class="btn">back</button>
                 <button ref="next" class="btn">next</button>
             </div>
 
-            <div class="appContainer">
+            <div class="appContaniner">
                 <template v-if="!viewingState">
-                    <Wine v-for="wine in PageWine" :key="wine.id" :like="likes" :wine="wine"/>
+                    <Wine v-for="wine in pageWine" :key="wine.id" :like="likes" :wine="wine"/>
                 </template>
             </div>
 
         </template>
-
-        <input type="text" v-model="loadingState">
+        
     </div>
     <script>
-        const {createApp, ref} = Vue;
+        const {createApp, ref} = Vue
 
         const Wine = {
-            props:['wine', 'like'],
-            template:`
-               <div class="wine-card">
-                <p>
-                    {{wine.wine}}
+            props: ['wine', 'like'],
+            template: `
+                <div class="wine-card">
+                    <p>
+                        {{wine.wine}}
                     </p>
                     <img class="image" :src="wine.image"/>
-                    </div>
-            `,
-            beforeUnmount(){
+                </div>
+            `
+            ,
+            beforeUnmount() {
 
             },
-            unmounted(){
+            unmounted() {
 
             }
         }
 
-        const app = createApp({
+        createApp({
             setup() {
                 const loadingState = ref(false);
                 const isMounted = ref(false);
+
                 return {
                     loadingState,
                     isMounted
@@ -132,32 +133,33 @@
             beforeCreate() {
                 console.log('컴포넌트 인스턴스 생성 전');
             },
-            created(){
+            created() {
                 console.log('컴포넌트 생성 후 초기 데이터 설정');
             },
-            beforeMount(){
+            beforeMount() {
 
                 /* 마운트 직전에 '로딩을 준비합니다' 글자 안보이게 하기 */
                 this.loadingState = true;
-                console.log('로딩완료 DOM에 추가');
+                console.log('로딩 완료 DOM에 추가');
             },
-            mounted(){
+            mounted() {
 
-                /* 제목에 'neon' 클래스명 부여 */
-                /* mounted에서 반응형 속성을 건드리면 아래 update 관련 라이프사이클 훅이 동작한다. */
+                /* 제목에 'neon 클래스명' 부여 */
+                /* mounted에서 반응형 속성을 건드리면 아래 update관련 라이프사이클 훅이 동작한다. */
                 this.isMounted = true;
-                console.log('마운트 완료');
+                console.log('마운트 완료 및 애니메이션 on');
             },
-            beforeUpdate(){
+            beforeUpdate() {
                 console.log('컴포넌트가 업데이트 되기 전');
             },
-            updated(){
+            updated() {
                 console.log('컴포넌트 렌더링이 완료');
             },
 
-            components:{
+            components: {
                 Wine
             }
+
         }).mount('#step01');
     </script>
 </body>
