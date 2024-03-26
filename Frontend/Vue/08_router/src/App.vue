@@ -24,12 +24,21 @@ import { RouterLink, RouterView } from 'vue-router';
     <h1>라우터 사용하기</h1>
     <hr>
     <div class="wrapper">
+      <!-- 
       <h2>basic router</h2>
-      <nav>
-        <RouterLink to="/" active-class="active">HOME</RouterLink>
-        <RouterLink to="/pathvariable/1" active-class="active">pathVariable</RouterLink>
-        <RouterLink to="/querystring?name=홍길동&age=20" active-class="active">QueryString</RouterLink>
-      </nav>
+        <nav>
+        <RouterLink to="/" active-class="active" replace>HOME</RouterLink>
+        <RouterLink to="/pathvariable/1" active-class="active" replace>pathVariable</RouterLink>
+        <RouterLink to="/querystring?name=홍길동&age=20" active-class="active" replace>QueryString</RouterLink>
+      </nav> 
+    -->
+
+    <h2>nested router</h2>
+    <nav>
+      <RouterLink to="/" active-class="active">HOME</RouterLink>
+      <RouterLink to="/nested/home" active-class="active">중첩 인덱스</RouterLink>
+      <RouterLink to="/nested/view" active-class="active">중첩 라우터</RouterLink>
+    </nav>
     </div>
   </header>
 
