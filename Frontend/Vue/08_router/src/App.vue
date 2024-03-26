@@ -1,25 +1,27 @@
 <script setup>
-import {RouterLink, RouterView} from 'vue-router';
-
-
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
-<template>
-<header>
-  <h1>라우터 사용하기</h1>
-  <hr>
-  <div class="wrapper">
-    <h2>basic router</h2>
-    <nav>
-      <RouterLink to="/">HOME</RouterLink> 
-      <RouterLink to="/pathvariable">pathVariable</RouterLink> 
-    </nav>
-  </div>
-</header>
+<!-- 
+  npm install vue-router@next
+ -->
 
-<main>
-  <RouterView/>
-</main>
+<template>
+  <header>
+    <h1>라우터 사용하기</h1>
+    <hr>
+    <div class="wrapper">
+      <h2>basic router</h2>
+      <nav>
+        <RouterLink to="/">HOME</RouterLink>
+        <RouterLink to="/pathvariable">pathVariable</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 
