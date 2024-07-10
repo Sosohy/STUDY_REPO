@@ -1,1 +1,2 @@
-DB, JAVA, BACK, FRONT, DevOps
+
+- DB, JAVA, BACK, FRONT, DevOps
